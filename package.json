@@ -1,0 +1,21 @@
+{
+  "name": "dev-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --opts mocha.opts && rm -rf test",
+    "test:auto": "mocha --opts mocha.opts --watch",
+    "build": "tsc index.ts --module commonjs"
+  },
+  "author": "Dale Alleshouse",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^3.4.34",
+    "@types/mocha": "^2.2.37",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "ts-node": "^2.0.0",
+    "typescript": "^2.1.4"
+  }
+}
