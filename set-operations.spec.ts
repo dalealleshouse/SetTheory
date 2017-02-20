@@ -48,8 +48,6 @@ describe('set operations', () => {
 
         expect(expected.length).to.eql(8);
         expect(powerSet).to.eql(expected);
-
-        const ps = (acc, x) => [...acc, ...acc.map(y => [x, ...y])];
     });
 
 
@@ -66,7 +64,6 @@ describe('set operations', () => {
 
         acc = ps(acc, 2);
         // acc = [[], [0], [1], [1, 0], [2], [2, 0], [2, 1], [2, 1, 0]]
-        console.log(acc);
 
         expect(acc).to.eql(expected);
     });
