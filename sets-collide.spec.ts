@@ -57,8 +57,15 @@ describe('intersect', () => {
     });
 
     it('intersect of roles without access', () => {
-        const resourceRoles = [{ id: 1, name: "Administrator" }, { id: 2, name: "Super User" }];
-        const user = { id: 314, name: "Edsger Dijkstra", roles: [{ id: 1, name: "Administrator" }, { id: 2, name: "User" }] }
+        const resourceRoles = [
+            { id: 1, name: "Administrator" },
+            { id: 2, name: "Super User" }];
+        const user =
+            {
+                id: 314, name: "Edsger Dijkstra", roles: [
+                    { id: 1, name: "Administrator" },
+                    { id: 2, name: "User" }]
+            }
 
         const hasAccess = resourceRoles.filter(x => user.roles.find(y => y.name == x.name)).length > 0;
 
@@ -88,10 +95,17 @@ describe('differance', () => {
     });
 
     it('differance of actions', () => {
-        const requiredActions = [{ id: 1, name: "Electronic Signing" }, { id: 2, name: "Submission Form" }, { id: 3, name: "Payment" }];
-        const userActions = [{ id: 1, name: "Electronic Signing" }, { id: 2, name: "Submission Form" }];
+        const requiredActions = [
+            { id: 1, name: "Electronic Signing" },
+            { id: 2, name: "Submission Form" },
+            { id: 3, name: "Payment" }];
+        const userActions = [
+            { id: 1, name: "Electronic Signing" },
+            { id: 2, name: "Submission Form" }];
 
-        const complete = requiredActions.filter(x => !userActions.find(y => y.name == x.name)).length <= 0;
+        const complete = requiredActions
+            .filter(x => !userActions.find(y => y.name == x.name)).length <= 0;
+        // complete = false
 
         expect(complete).to.be.false;
     });
