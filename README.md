@@ -1,8 +1,14 @@
-# Requirements
-Create a data structure that represents a binary search tree of integer values
+# Set Theory
 
-Create a function that validates a tree
-- Every descendant node to the left must have a smaller integer
-- Every descendant node to the right must have a larger integer
+Code excerpts for the Just Enough Set Theory series of blog posts
 
-Create tests that verify proper operation
+- Post 1 [Set Theory Defined](http://hideoushumpbackfreak.com/post/2017/02/05/Just-Enough-Set-Theory-Set-Theory-Defined-(Part-1-of-3))
+- Post 2 [Set Opertions](http://hideoushumpbackfreak.com/post/2017/02/19/Just-Enough-Set-Theory-Set-Operations-(Part-2-of-3))
+- Post 3 [When Sets Collide]()
+
+All code is contained in the spec files. To run the tests, type the following at the command line.
+
+```bash
+npm install
+npm run test
+```
