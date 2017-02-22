@@ -42,7 +42,6 @@ describe('set operations', () => {
         const expected = [[], [0], [1], [1, 0], [2], [2, 0], [2, 1], [2, 1, 0]];
 
         const someSet = [0, 1, 2];
-        // const powerSet = someSet.reduce((acc, x) => acc.concat(acc.map(y => [x].concat(y))), [[]]);
         const powerSet = someSet.reduce((acc, x) => [...acc, ...acc.map(y => [x, ...y])], [[]]);
         // powerSet = [[], [0], [1], [1,0], [2], [2,0], [2,1], [2,1,0]]
 

@@ -1,51 +1,49 @@
 import { expect } from 'chai';
 
-const A = [1, 2, 3];
-const B = [3, 4, 5];
+describe('union', () => {
+    it('union using Sets and primative types', () => {
+        const expected = new Set([1, 2, 3, 4, 5]);
+        
+        const A = new Set([1, 2, 3]);
+        const B = new Set([3, 4, 5]);
+        const union = new Set([...A, ...B]);
+        // union = [1,2,3,4,5];
 
-const Aset = new Set([1,2,3]);
-const Bset = new Set([3,4,5]);
-
-describe('union should', () => {
-    function union(a, b) {
-        // return [...new Set([...a, ...b])];
-        // return [...a, ...b].filter((x, index, array) => array.indexOf(x) == index);
-        return [...a, ...b].filter((x, index, array) => {
-            var temp = array.indexOf(x) == index;
-            console.log(`x = ${x}, index = ${index}, array = ${array}, result = ${temp}`);
-            return array.indexOf(x) == index;
-        });
-    }
-
-    function setUnion(a, b) {
-        return new Set([...a, ...b]);
-    }
-
-    it('combine two set objects', () => {
-        const expected = new Set([1,2,3,4,5]);
-        const result = setUnion(Aset, Bset);
-
-        expect(result).to.eql(expected);
+        expect(union).to.eql(expected);
     });
 
-    it('combine two sets', () => {
-        const expected = [1,2,3,4];
-        const result = union([1,2], [3,4]);
-
-        expect(result).to.eql(expected);
+    it('convert sets to arrays and back', () => {
+        const setDataStructure = new Set([1, 2, 3]);
+        const arrayDataStrcture = Array.from(setDataStructure);
+        
+        expect(setDataStructure).to.eql(new Set([1,2,3]));
+        expect(arrayDataStrcture).to.eql([1,2,3]);
     });
 
-    it('return distinct items', () => {
-        const expected = [1,2,3,4,5];
-        const result = union(A, B);
+    it('union of complex objects', () => {
+        const teamABugs = [
+            {id: 1, name: "Screen Explodes"},
+            {id: 2, name: "Keyboard Burts into Flames"},
+            {id: 3, name: "Submit button off by 1 pixel"}];
+        const teamBBugs = [
+            {id: 5, name: "Randomly Dials Russian Hackers"},
+            {id: 6, name: "Publishes CC info to the www"},
+            {id: 3, name: "Submit button off by 1 pixel"}];
 
-        expect(result).to.eql(expected);
+        const union = [...teamABugs, ...teamBBugs]
+            .filter((x, index, array) => array.findIndex(y => y.id == x.id) == index);
+
+        const expected = [
+            {id: 1, name: "Screen Explodes"},
+            {id: 2, name: "Keyboard Burts into Flames"},
+            {id: 3, name: "Submit button off by 1 pixel"},
+            {id: 5, name: "Randomly Dials Russian Hackers"},
+            {id: 6, name: "Publishes CC info to the www"}];
+
+        expect(expected).to.eql(union);
     });
+});
 
-    it.only('return distinct items', () => {
-        const expected = [1,2,3,4,5];
-        const result = union([1,2,3,4,5,5], [5,4,3,2,1]);
+describe('intersect', () => {
 
-        expect(result).to.eql(expected);
-    });
 });
