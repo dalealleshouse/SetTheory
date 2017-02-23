@@ -114,7 +114,7 @@ describe('differance', () => {
         const requiredActions = [{ id: 1, name: "Electronic Signing" }, { id: 2, name: "Submission Form" }, { id: 3, name: "Payment" }];
         const userActions = [{ id: 1, name: "Electronic Signing" }, { id: 2, name: "Submission Form" }, { id: 3, name: "Payment" }, { id: 4, name: "Email Confirmation" }];;
 
-        const complete = requiredActions.filter(x => !userActions.find(y => y.name == x.name)).length <= 0;
+        const complete = requiredActions.filter(x => !userActions.find(y => y.name == x.name)).length === 0;
 
         expect(complete).to.be.true;
     });
